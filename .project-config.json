@@ -1,0 +1,36 @@
+{
+  "build_command": "pnpm run build",
+  "capabilities": [],
+  "dev_command": "pnpm run dev",
+  "env_vars": {},
+  "experiments": null,
+  "git_remote": {
+    "repo_url": "s3://vida-prod-gitrepo/webdev-git/310519663116405364/AiXRRaSLZzFrZzh2yzqXzd",
+    "access_key_id": "ASIAZV3A2ECZBLQJFP76",
+    "secret_access_key": "zpgjfm2oK0uE6buLbGn+OGNPHnGntRmQCn5CSHkF",
+    "session_token": "IQoJb3JpZ2luX2VjEFUaCXVzLWVhc3QtMSJHMEUCIBZ/b8p90KPqRRa5FZa2vATW8bMkrIw2IrSFCJw4ur9uAiEA7RsIBcFK09Jb3ytEKKBovlS30Q6W6B70Y7pcyokGlbUq9gMIHhAEGgw2NjUzODYwOTg4NjYiDLKwvYUzmlskSxUaEirTAyZ2210p/KR8Ph8xxEVKXK4THvQ59OWVpWLwA1bR3bnZ4WsJafOtpLcAFQmJkAqx9scN3MHsRIuZPzQXfMpT6XKNCD5JrQQCsCaFugMvJYV9rENSLgl93/5RMWxN/h5VwntZsxj61xiaibOabzzthBzeQZhPK6UkB1bi/ly++YeYxJJcUCyw77G/sKcc99OVFtELHcKiJ8OeizLLIag3ypV4Yx47Q4bQ9G+vOGBLj8hiktZTYC1zznMm/ew0tdA+YEqEGtYz3XmPP5Yy2koOtl8WX0IcbXYNLeuYj/2ZYtYzlCdZIUYRlX/5tuclJwJLdbcvbLCdp1TstC8UWJ787dAnIOlh8wjwXgGsWwxUlPYE4OjmDaCVavwczN9Vq2kWIwjttvcoBB1ifQoltxoAiQZhnh+YoUQBtpATR8xNVW5XS5IiKDf084+2Yg3gXilx3wNS9ZaF9wL7zwf/TUs2Frz9dQyrD9u+6NwxkvXlYoyExyWGJnP7GOT33bDDmERJXqpY2Ct0rVd9PuwW8Nm7wR+Lg1KPjH3H7F0lDD3hvGir2TXaDMhkMCYiynGlIGuIhXpQA5uUeMKIRH/v89zj7vLTuLe88AmZUb/HdD0r5+dkTQ9wMPn66dEGOp0BHURX2qp6PNltUrF6+izzsdTyLOeyjzmx00ztFuahHUkQsvtUn5tvwObM4+o2Qb4o+SBJHEwnFFJuMd8onnX5GAOGS78Nv2B8/YL7Spqobp0btmTh3p+qWsSL5jkJum0d7K1gkYcfKb+A4WrZDI/v3AvAzIWRU3TmcASzICLQdg2dNian3NUhzDhe8nVPPBKDvAC8jDZwg2ZRtNnm+A==",
+    "expiration": "2026-06-24T00:35:05.000Z",
+    "backend": "GIT_BACKEND_S3"
+  },
+  "name": "portafolio-cienfuegos-invest",
+  "path": "/home/ubuntu/portafolio-cienfuegos-invest",
+  "port": 3000,
+  "secrets": {
+    "BUILT_IN_FORGE_API_KEY": "U23iyfeHEn8JUxX6ArpCT5",
+    "BUILT_IN_FORGE_API_URL": "https://forge.manus.ai",
+    "JWT_SECRET": "dz3UcSn6c2CB8Gn3Egf37F",
+    "OAUTH_SERVER_URL": "https://api.manus.im",
+    "OWNER_NAME": "Walter Castellanos",
+    "OWNER_OPEN_ID": "3g8TNmnFbEHCQLwwbCALfR",
+    "VITE_ANALYTICS_ENDPOINT": "https://manus-analytics.com",
+    "VITE_ANALYTICS_WEBSITE_ID": "f72953bb-e53e-4d22-a06c-3638d5a35f38",
+    "VITE_APP_ID": "AiXRRaSLZzFrZzh2yzqXzd",
+    "VITE_APP_LOGO": "",
+    "VITE_APP_TITLE": "Cienfuegos: Su Hub Logístico en el Caribe",
+    "VITE_FRONTEND_FORGE_API_KEY": "CUYwKDGbmWVJ8GdFLugcSd",
+    "VITE_FRONTEND_FORGE_API_URL": "https://forge.manus.ai",
+    "VITE_OAUTH_PORTAL_URL": "https://manus.im"
+  },
+  "template_id": "web-static",
+  "test_command": "pnpm test"
+}
