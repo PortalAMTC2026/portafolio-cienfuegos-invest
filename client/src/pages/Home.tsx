@@ -1,11 +1,24 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Anchor, Briefcase, Globe, Leaf, Lightbulb, MapPin, Ship, TrendingUp, Menu, X } from "lucide-react";
+import { Anchor, Briefcase, Globe, Leaf, Lightbulb, MapPin, Ship, TrendingUp, Menu, X, Phone, Mail } from "lucide-react";
 import { useState } from "react";
 
 export default function Home() {
   const [language, setLanguage] = useState<"es" | "en">("es");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [formData, setFormData] = useState({ nombre: "", email: "", empresa: "", mensaje: "" });
+  const [formSubmitted, setFormSubmitted] = useState(false);
+
+  const handleFormSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Aquí se enviaría el formulario a un servicio de email
+    console.log("Formulario enviado:", formData);
+    setFormSubmitted(true);
+    setTimeout(() => {
+      setFormSubmitted(false);
+      setFormData({ nombre: "", email: "", empresa: "", mensaje: "" });
+    }, 3000);
+  };
 
   const content = {
     es: {
@@ -98,7 +111,18 @@ export default function Home() {
         ubicacion: "Cienfuegos, Cuba",
         enlaces: "Enlaces Rápidos",
         contacto: "Contacto",
-        derechos: "© 2026 Administración Marítima Territorio Centro. Todos los derechos reservados."
+        derechos: "© 2026 Administración Marítima Territorio Centro. Todos los derechos reservados.",
+        contacto_title: "Información de Contacto",
+        contacto_email: "Email",
+        contacto_telefono: "Teléfono",
+        contacto_direccion: "Dirección",
+        formulario_title: "Formulario de Contacto",
+        formulario_nombre: "Nombre",
+        formulario_email: "Email",
+        formulario_empresa: "Empresa",
+        formulario_mensaje: "Mensaje",
+        formulario_enviar: "Enviar",
+        formulario_exito: "¡Mensaje enviado correctamente!"
       }
     },
     en: {
@@ -191,7 +215,18 @@ export default function Home() {
         ubicacion: "Cienfuegos, Cuba",
         enlaces: "Quick Links",
         contacto: "Contact",
-        derechos: "© 2026 Maritime Administration Central Territory. All rights reserved."
+        derechos: "© 2026 Maritime Administration Central Territory. All rights reserved.",
+        contacto_title: "Contact Information",
+        contacto_email: "Email",
+        contacto_telefono: "Phone",
+        contacto_direccion: "Address",
+        formulario_title: "Contact Form",
+        formulario_nombre: "Name",
+        formulario_email: "Email",
+        formulario_empresa: "Company",
+        formulario_mensaje: "Message",
+        formulario_enviar: "Send",
+        formulario_exito: "Message sent successfully!"
       }
     }
   };
@@ -610,8 +645,127 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Contact Section */}
+      <section id="contacto" className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16 space-y-4">
+            <h2 className="text-4xl font-bold text-primary" style={{ fontFamily: "Playfair Display, serif" }}>
+              {t.footer.contacto}
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              {language === "es" ? "Ponte en contacto con nosotros para conocer las oportunidades de inversión" : "Get in touch with us to learn about investment opportunities"}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Contact Information */}
+            <div className="space-y-6">
+              <Card className="border-l-4 border-l-accent">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Mail className="w-5 h-5 text-accent" />
+                    {t.footer.contacto_email}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <a href="mailto:walterking6115@gmail.com" className="text-primary hover:underline font-semibold">
+                    walterking6115@gmail.com
+                  </a>
+                </CardContent>
+              </Card>
+
+              <Card className="border-l-4 border-l-secondary">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Phone className="w-5 h-5 text-secondary" />
+                    {t.footer.contacto_telefono}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <a href="tel:+53 50549974" className="text-primary hover:underline font-semibold">
+                    +53 50549974
+                  </a>
+                </CardContent>
+              </Card>
+
+              <Card className="border-l-4 border-l-accent">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <MapPin className="w-5 h-5 text-accent" />
+                    {t.footer.contacto_direccion}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">
+                    {language === "es" ? "Cienfuegos, Cuba" : "Cienfuegos, Cuba"}
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Contact Form */}
+            <div>
+              <Card>
+                <CardHeader>
+                  <CardTitle>{t.footer.formulario_title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <form onSubmit={handleFormSubmit} className="space-y-4">
+                    <div>
+                      <label className="block text-sm font-medium mb-2">{t.footer.formulario_nombre}</label>
+                      <input
+                        type="text"
+                        required
+                        value={formData.nombre}
+                        onChange={(e) => setFormData({ ...formData, nombre: e.target.value })}
+                        className="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+                        placeholder={language === "es" ? "Tu nombre" : "Your name"}
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium mb-2">{t.footer.formulario_email}</label>
+                      <input
+                        type="email"
+                        required
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        className="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+                        placeholder={language === "es" ? "Tu email" : "Your email"}
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium mb-2">{t.footer.formulario_empresa}</label>
+                      <input
+                        type="text"
+                        value={formData.empresa}
+                        onChange={(e) => setFormData({ ...formData, empresa: e.target.value })}
+                        className="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+                        placeholder={language === "es" ? "Tu empresa" : "Your company"}
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium mb-2">{t.footer.formulario_mensaje}</label>
+                      <textarea
+                        required
+                        value={formData.mensaje}
+                        onChange={(e) => setFormData({ ...formData, mensaje: e.target.value })}
+                        className="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent h-32 resize-none"
+                        placeholder={language === "es" ? "Tu mensaje" : "Your message"}
+                      />
+                    </div>
+                    <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-white font-semibold">
+                      {formSubmitted ? t.footer.formulario_exito : t.footer.formulario_enviar}
+                    </Button>
+                  </form>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
-      <footer id="contacto" className="bg-gray-900 text-white py-12">
+      <footer className="bg-gray-900 text-white py-12">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-8">
             <div className="space-y-3">
@@ -629,8 +783,8 @@ export default function Home() {
             <div className="space-y-3">
               <h4 className="font-semibold">{t.footer.contacto}</h4>
               <p className="text-gray-400 text-sm">
-                {language === "es" ? "Para consultas de inversión:" : "For investment inquiries:"}<br/>
-                <a href="mailto:inversiones@amtc.cu" className="hover:text-white transition-colors">inversiones@amtc.cu</a>
+                <a href="mailto:walterking6115@gmail.com" className="hover:text-white transition-colors">walterking6115@gmail.com</a><br/>
+                <a href="tel:+53 50549974" className="hover:text-white transition-colors">+53 50549974</a>
               </p>
             </div>
           </div>
